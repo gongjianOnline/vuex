@@ -2,6 +2,7 @@
     <div>
       	<h1>{{num}}</h1> 
       	<input type="button" value="+" @click="updata">
+          <input type="button" value="-" @click="reduce">
         <button @click="test">test</button>
     </div>
 </template>
@@ -22,7 +23,8 @@ export default {
     },
     methods:{
         ...mapActions({
-            updata:"ADD"
+            updata:"ADD",
+            reduce:"reduceFun"
         }),
         test(){
             fetch("../data/data.json").then((response)=>{

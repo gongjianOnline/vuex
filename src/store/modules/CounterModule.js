@@ -9,6 +9,9 @@ export default {
 		//inc事件接受两个参数，一个必要参数为固定参数state,第二个不必要参数payload接受传过来的值
 		INC:(state)=>{
 			state.num ++
+		},
+		reduce:(state)=>{
+			state.num --
 		}
 	},
 	//用来监听外部组件的动作请求
@@ -20,11 +23,17 @@ export default {
 			setTimeout(()=>{
 				store.commit("INC")
 			},2000)
+		},
+		reduceFun:(store)=>{
+			store.commit("reduce")
 		}
 	},
 	//通过getters来访问最新状态
 	getters:{
 		GETNUM:(state)=>{
+			return state.num
+		},
+		reduceUnm:(state)=>{
 			return state.num
 		}
 	}
